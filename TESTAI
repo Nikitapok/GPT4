@@ -1,0 +1,1067 @@
+Entity Hooks
+OnNpcPlayerResume
+Useful for canceling the invoke of TryForceToNavmesh
+Returning a non-null value cancels default behavior
+object OnNpcPlayerResume(NPCPlayerApex npc)
+{
+    Puts("OnNpcPlayerResume works!");
+    return null;
+}
+OnNpcDestinationSet
+Useful for canceling the destination change on NPCs
+Returning a non-null value cancels default behavior
+object OnNpcDestinationSet(NPCPlayerApex npc, Vector3 newPosition)
+{
+    Puts("OnNpcDestinationSet works!");
+    return null;
+}
+OnNpcStopMoving
+Useful for denying the move stop of NPCs
+Returning a non-null value cancels default behavior
+object OnNpcStopMoving(NPCPlayerApex npc)
+{
+    Puts("OnNpcStopMoving works!");
+    return null;
+}
+OnEntityMarkHostile
+Useful for denying marking the entity hostile
+Returning a non-null value cancels default behavior
+object OnEntityMarkHostile(BaseCombatEntity entity, float duration)
+{
+    Puts("OnEntityMarkHostile works!");
+    return null;
+}
+CanEntityBeHostile
+Useful for overriding hostility of an entity
+Returning a non-null value overrides default behavior
+object CanEntityBeHostile(BaseCombatEntity entity)
+{
+    Puts("CanEntityBeHostile works!");
+    return null;
+}
+OnMlrsFire
+Called just before the MLRS is fired.
+Returning a non-null value overrides default behaviour.
+object OnMlrsFire(MLRS mlrs, BasePlayer player)
+{
+    Puts("OnMlrsFire works!");
+    return null;
+}
+OnMlrsFired
+Called just after the MLRS has been fired.
+No return behaviour.
+void OnMlrsFired(MLRS mlrs, BasePlayer player)
+{
+    Puts("OnMlrsFired works!");
+}
+CanSamSiteShoot
+Useful for canceling the shoot of SamSite
+Returning a non-null value cancels default behavior
+object CanSamSiteShoot(SamSite samSite)
+{
+    Puts("CanSamSiteShoot works!");
+    return null;
+}
+OnTurretAssign
+Called when a player attempts to authorize another player on a turret
+Returning a non-null value cancels default behavior
+object OnTurretAssign(AutoTurret turret, ulong targetId, BasePlayer initiator)
+{
+    Puts("{targetId} has been authorized on a turret by {initiator.displayName}");
+    return null;
+}
+OnTurretAssigned
+Called when a player has been authorized on a turret by another player
+No return behaviour
+void OnTurretAssigned(AutoTurret turret, ulong targetId, BasePlayer initiator)
+{
+    Puts($"{targetId} has been authorized on a turret by {initiator.displayName});
+}
+CanBradleyApcTarget
+Called when an APC targets an entity
+Returning true or false overrides default behavior
+bool CanBradleyApcTarget(BradleyAPC apc, BaseEntity entity)
+{
+    Puts("CanBradleyApcTarget works!");
+    return true;
+}
+OnDieselEngineToggle
+Called when a player is trying to toggle diesel engine
+Returning a non-null value cancels default behavior
+object OnDieselEngineToggle(DieselEngine engine, BasePlayer player)
+{
+    Puts("OnDieselEngineToggle works!");
+    return null;
+}
+OnDieselEngineToggled
+Called when diesel engine is toggled
+No return behavior
+void OnDieselEngineToggled(DieselEngine engine)
+{
+    Puts("OnDieselEngineToggled works!");
+}
+OnExcavatorMiningToggled
+Called when excavator mining arm is toggled
+No return behavior
+void OnExcavatorMiningToggled(ExcavatorArm arm)
+{
+    Puts("OnExcavatorMiningToggled works!");
+}
+OnExcavatorGather
+Called right before moving gathered resource to container
+Returning a non-null value cancels default behavior
+object OnExcavatorGather(ExcavatorArm arm, Item item)
+{
+    Puts("OnExcavatorGather works!");
+    return null;
+}
+OnExcavatorResourceSet
+Called when a player is trying to set a new resource target
+Returning a non-null value cancels default behavior
+object OnExcavatorResourceSet(ExcavatorArm arm, string resourceName, BasePlayer player)
+{
+    Puts("OnExcavatorResourceSet works!");
+    return null;
+}
+OnInputUpdate
+Called when an input of IOEntity is updated
+Returning a non-null value cancels default behavior
+object OnInputUpdate(IOEntity entity, int inputAmount, int slot)
+{
+    Puts("OnInputUpdate works!");
+    return null;
+}
+OnOutputUpdate
+Called when outputs of IOEntity are updated
+Returning a non-null value cancels default behavior
+object OnOutputUpdate(IOEntity entity)
+{
+    Puts("OnOutputUpdate works!");
+    return null;
+}
+OnButtonPress
+Called when a player is trying to press a button
+Returning a non-null value cancels default behavior
+object OnButtonPress(PressButton button, BasePlayer player)
+{
+    Puts("OnButtonPress works!");
+    return null;
+}
+OnShopAcceptClick
+Called when a player is trying to accept a trade in ShopFront
+Returning a non-null value cancels default behavior
+object OnShopAcceptClick(ShopFront entity, BasePlayer player)
+{
+    Puts("OnShopAcceptClick works!");
+    return null;
+}
+OnShopCancelClick
+Called when a player is cancelling a trade
+Returning a non-null value cancels default behavior
+object OnShopCancelClick(ShopFront entity, BasePlayer player)
+{
+    Puts("OnShopCancelClick works!");
+    return null;
+}
+OnShopCompleteTrade
+Called before the trade is completed in ShopFront
+Returning a non-null value cancels default behavior
+object OnShopCompleteTrade(ShopFront entity)
+{
+    Puts("OnShopCompleteTrade works!");
+    return null;
+}
+OnSamSiteTarget
+Called before last target visible time is updated
+Returning a non-null value cancels default behavior
+object OnSamSiteTarget(SamSite samSite, BaseCombatEntity target)
+{
+    Puts("OnSamSiteTarget works!");
+    return null;
+}
+OnHelicopterStrafeEnter
+Called when helicopter is entering strafe
+Returning a non-null value cancels default behavior
+object OnHelicopterStrafeEnter(PatrolHelicopterAI helicopter, Vector3 strafePosition)
+{
+    Puts("OnHelicopterStrafeEnter works!");
+    return null;
+}
+OnSupplyDropLanded
+Called after Supply Drop has landed
+No return behavior
+void OnSupplyDropLanded(SupplyDrop entity)
+{
+    Puts("OnSupplyDropLanded works!");
+}
+OnEntityStabilityCheck
+Called when stability of an entity is checked
+Returning a non-null value cancels default behavior
+object OnEntityStabilityCheck(StabilityEntity entity)
+{
+    Puts("OnEntityStabilityCheck works!");
+    return null;
+}
+OnBuildingPrivilege
+Useful for overriding a building privilege on specific entities and etc.
+Returning BuildingPrivlidge value overrides default behavior
+BuildingPrivlidge OnBuildingPrivilege(BaseEntity entity, OBB obb)
+{
+    Puts($"Getting a building privilege for {entity.ShortPrefabName}!");
+    return null;
+}
+OnHorseLead
+Called when a player tries to lead a horse
+Returning a non-null value overrides default behavior
+object OnHorseLead(BaseRidableAnimal animal, BasePlayer player)
+{
+    Puts($"{player.displayName} tries to lead {animal.ShortPrefabName}");
+    return null;
+}
+OnHorseHitch
+Called just before setting the hitch
+Returning a non-null value overrides default behavior
+object OnHorseHitch(RidableHorse horse, HitchTrough hitch)
+{
+    Puts("OnHorseHitch works!");
+    return null;
+}
+OnWireConnect
+Useful for preventing a wire to connect
+Returning a non-null value cancels default behavior
+object OnWireConnect(BasePlayer player, IOEntity entity1, int inputs, IOEntity entity2, int outputs)
+{
+    Puts("OnWireConnect works!");
+    return null;
+}
+OnWireClear
+Useful for preventing clearing wires
+Returning a non-null value cancels default behavior
+object OnWireClear(BasePlayer player, IOEntity entity1, int connected, IOEntity entity2, bool flag)
+{
+    Puts("OnWireClear works!");
+    return null;
+}
+OnReactiveTargetReset
+Called after the reactive target is reset
+No return behaviour
+void OnReactiveTargetReset(ReactiveTarget target)
+{
+    Puts("OnReactiveTargetReset works!");
+}
+CanHelicopterDropCrate
+Called when a CH47 helicopter attempts to drop a crate
+Returning true or false overrides default behavior
+bool CanHelicopterDropCrate(CH47HelicopterAIController heli)
+{
+    Puts("CanHelicopterDropCrate works!");
+    return true;
+}
+OnEngineLoadoutRefresh
+Called before engine loadout data is refreshed
+Returning a non-null value overrides default behaviour
+object OnEngineLoadoutRefresh(EngineStorage storage)
+{
+    Puts("OnEngineLoadoutRefresh works!");
+    return null;
+}
+CanHelicopterStrafe
+Called when a patrol helicopter attempts to strafe
+Returning true or false overrides default behavior
+bool CanHelicopterStrafe(PatrolHelicopterAI heli)
+{
+    Puts("CanHelicopterStrafe works!");
+    return true;
+}
+CanHelicopterStrafeTarget
+Called when a patrol helicopter attempts to target a player to attack while strafing
+Returning true or false overrides default behavior
+bool CanHelicopterStrafeTarget(PatrolHelicopterAI entity, BasePlayer target)
+{
+    Puts("CanHelicopterStrafeTarget works!");
+    return true;
+}
+CanHelicopterTarget
+Called when a patrol helicopter attempts to target a player to attack
+Returning true or false overrides default behavior
+bool CanHelicopterTarget(PatrolHelicopterAI heli, BasePlayer player)
+{
+    Puts("CanHelicopterTarget works!");
+    return true;
+}
+CanHelicopterUseNapalm
+Called when a patrol helicopter attempts to use napalm
+Returning true or false overrides default behavior
+bool CanHelicopterUseNapalm(PatrolHelicopterAI heli)
+{
+    Puts("CanHelicopterUseNapalm works!");
+    return true;
+}
+OnHelicopterRetire
+Called before the patrol helicopter starts leaving the map.
+Returning a non-null value overrides default behaviour.
+object OnHelicopterRetire(PatrolHelicopterAI helicopter)
+{
+    Puts("OnHelicopterRetire works!");
+    return null;
+}
+CanNetworkTo
+Called when an entity attempts to network with a player
+For better performance, avoid using heavy calculations in this hook.
+Returning true or false overrides default behavior
+bool CanNetworkTo(BaseNetworkable entity, BasePlayer target)
+{
+    Puts("CanNetworkTo works!");
+    return true;
+}
+CanNpcAttack
+Called when a NPC attempts to attack another entity
+Returning true or false overrides default behavior
+bool CanNpcAttack(BaseNpc npc, BaseEntity target)
+{
+    Puts("CanNpcAttack works!");
+    return true;
+}
+CanNpcEat
+Called when a NPC attempts to eat another entity
+Returning true or false overrides default behavior
+bool CanNpcEat(BaseNpc npc, BaseEntity target)
+{
+    Puts("CanNpcEat works!");
+    return true;
+}
+CanRecycle
+Called when the recycler attempts to recycle an item
+Returning true or false overrides default behavior
+bool CanRecycle(Recycler recycler, Item item)
+{
+    Puts("CanRecycle works!");
+    return true;
+}
+OnAirdrop
+Called when an airdrop has been called
+No return behavior
+void OnAirdrop(CargoPlane plane, Vector3 dropPosition)
+{
+    Puts("OnAirdrop works!");
+}
+OnBradleyApcInitialize
+Called when an APC initializes
+Returning a non-null value overrides default behavior
+object OnBradleyApcInitialize(BradleyAPC apc)
+{
+    Puts("OnBradleyApcInitialize works!");
+    return null;
+}
+OnBradleyApcHunt
+Called when an APC starts hunting
+Returning a non-null value overrides default behavior
+object OnBradleyApcHunt(BradleyAPC apc)
+{
+    Puts("OnBradleyApcHunt works!");
+    return null;
+}
+OnBradleyApcPatrol
+Called when an APC is starts patrolling
+Returning a non-null value overrides default behavior
+object OnBradleyApcPatrol(BradleyAPC apc)
+{
+    Puts("OnBradleyApcPatrol works!");
+    return null;
+}
+OnContainerDropItems
+Called when a container is destroyed and all items are about to be dropped
+Returning a non-null value overrides default behavior
+object OnContainerDropItems(ItemContainer container)
+{
+    Puts("OnContainerDropItems works!");
+    return null;
+}
+OnCrateDropped
+Called when a locked crate from the CH47 (Chinook) has dropped
+No return behavior
+void OnCrateDropped(HackableLockedCrate crate)
+{
+    Puts("OnCrateDropped works!");
+}
+OnCrateHack
+Called when a player starts hacking a locked crate
+No return behavior
+void OnCrateHack(HackableLockedCrate crate)
+{
+    Puts("OnCrateHack works!");
+}
+OnCrateHackEnd
+Called when a player stops hacking a locked crate
+No return behavior
+void OnCrateHackEnd(HackableLockedCrate crate)
+{
+    Puts("OnCrateHackEnd works!");
+}
+OnCrateLanded
+Called when a locked crate from the CH47 (Chinook) has landed
+No return behavior
+void OnCrateLanded(HackableLockedCrate crate)
+{
+    Puts("OnCrateLanded works!");
+}
+OnEntityDeath
+HitInfo might be null, check it before use
+Editing hitInfo has no effect because the death has already happened
+No return behavior
+void OnEntityDeath(BaseCombatEntity entity, HitInfo info)
+{
+    Puts("OnEntityDeath works!");
+}
+OnEntityDismounted
+Called when an entity is dismounted by a player
+No return behavior
+void OnEntityDismounted(BaseMountable entity, BasePlayer player)
+{
+    Puts("OnEntityDismounted works!");
+}
+OnEntityEnter
+Called when an entity enters a trigger (water area, radiation zone, hurt zone, etc.)
+No return behavior
+void OnEntityEnter(TriggerBase trigger, BaseEntity entity)
+{
+    Puts("OnEntityEnter works!");
+}
+OnEntityGroundMissing
+Called when an entity (sleepingbag, sign, furnace,...) is going to be destroyed because the buildingblock it is on was removed
+Returning a non-null value overrides default behavior
+object OnEntityGroundMissing(BaseEntity entity)
+{
+    Puts("OnEntityGroundMissing works!");
+    return null;
+}
+OnEntityKill
+Called when an entity is destroyed
+Returning a non-null value overrides default behavior
+object OnEntityKill(BaseNetworkable entity)
+{
+    Puts("OnEntityKill works!");
+    return null;
+}
+OnEntityLeave
+Called when an entity leaves a trigger (water area, radiation zone, hurt zone, etc.)
+No return behavior
+void OnEntityLeave(TriggerBase trigger, BaseEntity entity)
+{
+    Puts("OnEntityLeave works!");
+}
+OnEntityMounted
+Called when an entity is mounted by a player
+No return behavior
+void OnEntityMounted(BaseMountable entity, BasePlayer player)
+{
+    Puts("OnEntityMounted works!");
+}
+OnEntitySpawned
+Called after any networked entity has spawned (including trees)
+No return behavior
+void OnEntitySpawned(BaseNetworkable entity)
+{
+    Puts("OnEntitySpawned works!");
+}
+OnEntityTakeDamage
+Alternatively, modify the HitInfo object to change the damage
+It should be okay to set the damage to 0, but if you don't return non-null, the player's client will receive a damage indicator (if entity is a BasePlayer)
+HitInfo has all kinds of useful things in it, such as Weapon, damageProperties or damageTypes
+object OnEntityTakeDamage(BaseCombatEntity entity, HitInfo info)
+{
+    Puts("OnEntityTakeDamage works!");
+    return null;
+}
+OnFireBallDamage
+Called when a fire ball does damage to another entity
+No return behavior
+void OnFireBallDamage(FireBall fire, BaseCombatEntity entity, HitInfo info)
+{
+    Puts("OnFireBallDamage works!");
+}
+OnFireBallSpread
+Called when a fire ball fire spreads
+No return behavior
+void OnFireBallSpread(FireBall ball, BaseEntity fire)
+{
+    Puts("OnFireBallSpread works!");
+}
+OnFlameExplosion
+Called when a flame explodes
+No return behavior
+void OnFlameExplosion(FlameExplosive explosive, BaseEntity flame)
+{
+    Puts("OnFlameExplosion works!");
+}
+OnHelicopterAttack
+Called when a CH47 helicopter is being attacked
+Returning a non-null value overrides default behavior
+object OnHelicopterAttack(CH47HelicopterAIController heli)
+{
+    Puts("OnHelicopterAttack works!");
+    return null;
+}
+OnHelicopterDropCrate
+Called when a CH47 helicopter is dropping a crate
+Returning a non-null value overrides default behavior
+object OnHelicopterDropCrate(CH47HelicopterAIController heli)
+{
+    Puts("OnHelicopterDropCrate works!");
+    return null;
+}
+OnHelicopterDropDoorOpen
+Called when a CH47 helicopter is opening its drop door
+Returning a non-null value overrides default behavior
+object OnHelicopterDropDoorOpen(CH47HelicopterAIController heli)
+{
+    Puts("OnHelicopterDropDoorOpen works!");
+    return null;
+}
+OnHelicopterKilled
+Called when a CH47 helicopter is going to be killed
+Returning a non-null value overrides default behavior
+object OnHelicopterKilled(CH47HelicopterAIController heli)
+{
+    Puts("OnHelicopterKilled works!");
+    return null;
+}
+OnHelicopterOutOfCrates
+Called when a CH47 helicopter runs out of crates
+Returning true or false overrides default behavior
+bool? OnHelicopterOutOfCrates(CH47HelicopterAIController heli)
+{
+    Puts("OnHelicopterOutOfCrates works!");
+    return null;
+}
+OnHelicopterTarget
+Called when a helicopter turret attempts to target an entity
+Returning a non-null value overrides default behavior
+object OnHelicopterTarget(HelicopterTurret turret, BaseCombatEntity entity)
+{
+    Puts("OnHelicopterTarget works!");
+    return null;
+}
+OnLiftUse
+Called when a player calls a lift or procedural lift
+Returning a non-null value overrides default behavior
+object OnLiftUse(Lift lift, BasePlayer player)
+{
+    Puts("OnLiftUse works!");
+    return null;
+}
+object OnLiftUse(ProceduralLift lift, BasePlayer player)
+{
+    Puts("OnLiftUse works!");
+    return null;
+}
+OnLootSpawn
+Called when loot spawns in a container
+Returning a non-null value overrides default behavior
+object OnLootSpawn(LootContainer container)
+{
+    Puts("OnLootSpawn works!");
+    return null;
+}
+OnNpcTargetSense
+Called when an NPC becomes aware of another entity
+Returning a non-null value overrides default behavior
+object OnNpcTargetSense(BaseEntity owner, BaseEntity entity, AIBrainSenses brainSenses)
+{
+    Puts("OnNpcTargetSense works!");
+    return null;
+}
+OnNpcTarget
+Called when an NPC targets another entity
+Returning a non-null value overrides default behavior
+object OnNpcTarget(BaseEntity npc, BaseEntity entity)
+{
+    Puts("OnNpcTarget works!");
+    return null;
+}
+OnOvenCook
+Called before an oven cooks an item
+Returning a non-null value overrides default behavior
+object OnOvenCook(BaseOven oven, Item item)
+{
+    Puts("OnOvenCook works!");
+    return null;
+}
+OnOvenCooked
+Called after an oven cooks an item
+No return behavior
+void OnOvenCooked(BaseOven oven, Item item, BaseEntity slot)
+{
+    Puts("OnOvenCooked works!");
+}
+OnOvenToggle
+Called when an oven (Campfire, Furnace,...) is turned on or off
+Returning a non-null value overrides default behavior
+object OnOvenToggle(BaseOven oven, BasePlayer player)
+{
+    Puts("OnOvenToggle works!");
+    return null;
+}
+OnItemRecycle
+Called when an item is recycled in a recycler
+Returning a non-null value overrides default behavior
+object OnItemRecycle(Item item, Recycler recycler)
+{
+    Puts("OnItemRecycle works!");
+    return null;
+}
+OnRecyclerToggle
+Called when a recycler is turned on or off
+Returning a non-null value overrides default behavior
+object OnRecyclerToggle(Recycler recycler, BasePlayer player)
+{
+    Puts("OnRecyclerToggle works!");
+    return null;
+}
+OnResourceDepositCreated
+Called when a resource deposit has been created
+No return behavior
+void OnResourceDepositCreated(ResourceDepositManager.ResourceDeposit deposit)
+{
+    Puts("OnResourceDepositCreated works!");
+}
+OnShopCompleteTrade
+Called when a shopfront trade is complete
+Returning a non-null value overrides default behavior
+object OnShopCompleteTrade(ShopFront shop, BasePlayer customer)
+{
+    Puts("OnShopCompleteTrade works!");
+    return null;
+}
+OnTurretAuthorize
+Called when a player attempts to authorize on a turret
+Returning a non-null value overrides default behavior
+object OnTurretAuthorize(AutoTurret turret, BasePlayer player)
+{
+    Puts("OnTurretAuthorize works!");
+    return null;
+}
+OnTurretClearList
+Called when a player attempts to clear an autoturret's authorized list
+Returning a non-null value overrides default behavior
+object OnTurretClearList(AutoTurret turret, BasePlayer player)
+{
+    Puts("OnTurretClearList works!");
+    return null;
+}
+OnTurretDeauthorize
+Called when a player is deauthorized on an autoturret
+Returning a non-null value overrides default behavior
+object OnTurretDeauthorize(AutoTurret turret, BasePlayer player)
+{
+    Puts("OnTurretDeauthorize works!");
+    return null;
+}
+OnTurretModeToggle
+Called when the mode of an autoturrent is toggled
+No return behavior
+void OnTurretModeToggle(AutoTurret turret)
+{
+    Puts("OnTurretModeToggle works!");
+}
+OnTurretShutdown
+Called when an autoturret is shut down
+Returning a non-null value overrides default behavior
+object OnTurretShutdown(AutoTurret turret)
+{
+    Puts("OnTurretShutdown works!");
+    return null;
+}
+OnTurretStartup
+Called when an autoturret starts up
+Returning a non-null value overrides default behavior
+object OnTurretStartup(AutoTurret turret)
+{
+    Puts("OnTurretStartup works!");
+    return null;
+}
+OnTurretTarget
+Called when an autoturret attempts to target an entity
+Returning a non-null value overrides default behavior
+object OnTurretTarget(AutoTurret turret, BaseCombatEntity entity)
+{
+    Puts("OnTurretTarget works!");
+    return null;
+}
+OnTurretToggle
+Called when an autoturret toggles powerstate (on/off)
+Returning a non-null value overrides default behavior
+object OnTurretToggle(AutoTurret turret)
+{
+    Puts("OnTurretToggle works!");
+    return null;
+}
+OnBigWheelWin
+Called before multiplier is applied.
+Returning non-null value overrides default behaviour.
+object OnBigWheelWin(BigWheelGame bigWheel, Item scrap, BigWheelBettingTerminal terminal, int multiplier)
+{
+    Puts("OnBigWheelWin works!");
+    return null;
+}
+OnBigWheelLoss
+Called when a specific item is lost on the big wheel game
+No return behavior
+void OnBigWheelLoss(BigWheelGame wheel, Item item)
+{
+    Puts("OnBigWheelLoss works!");
+}
+OnSolarPanelSunUpdate
+Called when a solar panel updates the amount of energy it is getting from the sun
+Returning a non-null value overrides default behavior
+object OnSolarPanelSunUpdate(SolarPanel panel, int currentEnergy)
+{
+    Puts("OnSolarPanelSunUpdate works!");
+    return null;
+}
+OnBookmarkControlStarted
+Called after a player has selected a bookmark at a computer station
+No return behavior
+void OnBookmarkControlStarted(ComputerStation computerStation, BasePlayer player, string bookmarkName, IRemoteControllable remoteControllable)
+{
+    Puts("OnBookmarkControlStarted works!");
+}
+OnBookmarkControl
+Called when a player tries to select a bookmark at a computer station
+Returning a non-null value overrides default behavior
+object OnBookmarkControl(ComputerStation computerStation, BasePlayer player, string bookmarkName, IRemoteControllable remoteControllable)
+{
+    Puts("OnBookmarkControl works!");
+    return null;
+}
+OnBookmarkDelete
+Called when a player tries to delete a bookmark at a computer station
+Returning a non-null value overrides default behavior
+object OnBookmarkDelete(ComputerStation computerStation, BasePlayer player, string bookmarkName)
+{
+    Puts("OnBookmarkDelete works!");
+    return null;
+}
+OnBookmarkAdd
+Called when a player tries to add a bookmark at a computer station
+Returning a non-null value overrides default behavior
+object OnBookmarkAdd(ComputerStation computerStation, BasePlayer player, string bookmarkName)
+{
+    Puts("OnBookmarkAdd works!");
+    return null;
+}
+OnBookmarksSendControl
+Called when a player is being sent a list of bookmarks for a computer station
+Returning a non-null value overrides default behavior
+object OnBookmarksSendControl(ComputerStation computerStation, BasePlayer player, string bookmarks)
+{
+    Puts("OnBookmarksSendControl works!");
+    return null;
+}
+OnBookmarkControlEnded
+Called after a player has stopped viewing/controlling an entity at a computer station
+No return behavior
+void OnBookmarkControlEnded(ComputerStation computerStation, BasePlayer player, BaseEntity controlledEntity)
+{
+    Puts("OnBookmarkControlEnded works!");
+}
+OnBookmarkControlEnd
+Called when a player tries to stop viewing/controlling an entity at a computer station
+Returning a non-null value overrides default behavior
+object OnBookmarkControlEnd(ComputerStation computerStation, BasePlayer player, BaseEntity controlledEntity)
+{
+    Puts("OnBookmarkControlEnd works!");
+    return null;
+}
+OnRfBroadcasterAdd
+Called right before an object starts broadcasting an RF frequency
+Returning a non-null value overrides default behavior
+object OnRfBroadcasterAdd(IRFObject obj, int frequency)
+{
+    Puts("OnRfBroadcasterAdd works!");
+    return null;
+}
+OnRfBroadcasterAdded
+Called right after an object has started broadcasting an RF frequency
+No return behavior
+void OnRfBroadcasterAdded(IRFObject obj, int frequency)
+{
+    Puts("OnRfBroadcasterAdded works!");
+}
+OnRfBroadcasterRemove
+Called right before an object stops broadasting an RF frequency
+Returning a non-null value overrides default behavior
+object OnRfBroadcasterRemove(IRFObject obj, int frequency)
+{
+    Puts("OnRfBroadcasterRemove works!");
+    return null;
+}
+OnRfBroadcasterRemoved
+Called right after an object has stopped broadcasting an RF frequency
+No return behavior
+void OnRfBroadcasterRemoved(IRFObject obj, int frequency)
+{
+    Puts("OnRfBroadcasterRemoved works!");
+}
+OnRfListenerAdd
+Called right before an object starts listening to an RF frequency
+Returning a non-null value overrides default behavior
+object OnRfListenerAdd(IRFObject obj, int frequency)
+{
+    Puts("OnRfListenerAdd works!");
+    return null;
+}
+OnRfListenerAdded
+Called right after an object has started listening to an RF frequency
+No return behavior
+void OnRfListenerAdded(IRFObject obj, int frequency)
+{
+    Puts("OnRfListenerAdded works!");
+}
+OnRfListenerRemove
+Called right before an object stops listening to an RF frequency
+Returning a non-null value overrides default behavior
+object OnRfListenerRemove(IRFObject obj, int frequency)
+{
+    Puts("OnRfListenerRemove works!");
+    return null;
+}
+OnRfFrequencyChange
+Called when a player tries to change the frequency of an RF broadcaster or receiver
+Returning a non-null value overrides default behavior
+Useful for preventing particular reserved frequencies from being selected
+object OnRfFrequencyChange(IRFObject obj, int frequency, BasePlayer player)
+{
+    Puts("OnRfFrequencyChange works!");
+    return null;
+}
+OnRfFrequencyChanged
+Called after a player has changed the frequency of an RF broadcaster or receiver
+No return behavior
+void OnRfFrequencyChanged(IRFObject obj, int frequency, BasePlayer player)
+{
+    Puts("OnRfFrequencyChanged works!");
+}
+OnRfListenerRemoved
+Called right after an object has stopped listening to an RF frequency
+No return behavior
+void OnRfListenerRemoved(IRFObject obj, int frequency)
+{
+    Puts("OnRfListenerRemoved works!");
+}
+OnSleepingBagDestroy
+Called when a player tries to remove a sleeping bag from their respawn screen
+Returning a non-null value overrides default behavior
+object OnSleepingBagDestroy(SleepingBag sleepingBag, BasePlayer player)
+{
+    Puts("OnSleepingBagDestroy works!");
+    return null;
+}
+OnSleepingBagDestroyed
+Called after a player removes a sleeping bag from their respawn screen
+No return behavior
+void OnSleepingBagDestroyed(SleepingBag sleepingBag, BasePlayer player)
+{
+    Puts("OnSleepingBagDestroyed works!");
+}
+OnBookmarkInput
+Called when input is received from a player who is using a computer station with a bookmark selected
+Returning a non-null value overrides default behavior
+object OnBookmarkInput(ComputerStation computerStation, BasePlayer player, InputState inputState)
+{
+    Puts("OnBookmarkInput works!");
+    return null;
+}
+OnEntityControl
+Called when a player tries to remote control an entity
+Returning true or false overrides default behavior
+object OnEntityControl(IRemoteControllable entity)
+{
+    Puts("OnEntityControl works!");
+    return null;
+}
+OnTurretRotate
+Called when a player tries to rotate an auto turret
+Returning a non-null value overrides default behavior
+object OnTurretRotate(AutoTurret turret, BasePlayer player)
+{
+    Puts("OnTurretRotate works!");
+    return null;
+}
+OnCounterTargetChange
+Called when a player tries to change the target number of a power counter
+Returning a non-null value overrides default behavior
+object OnCounterTargetChange(PowerCounter counter, BasePlayer player, int targetNumber)
+{
+    Puts("OnCounterTargetChange works!");
+    return null;
+}
+OnCounterModeToggle
+Called when a player ties to toggle a power counter between modes
+Returning a non-null value overrides default behavior
+object OnCounterModeToggle(PowerCounter counter, BasePlayer player, bool mode)
+{
+    Puts("OnCounterModeToggle works!");
+    return null;
+}
+OnSwitchToggle
+Called when a player tries to switch and ElectricSwitch or FuelGenerator
+Returning a non-null value cancels default behavior
+object OnSwitchToggle(IOEntity entity, BasePlayer player)
+{
+    Puts("OnSwitchToggle works!");
+    return null;
+}
+OnSwitchToggled
+Called right after a player switches an ElectricSwitch or FuelGenerator
+No return behavior
+void OnSwitchToggled(IOEntity entity, BasePlayer player)
+{
+    Puts("OnSwitchToggled works!");
+}
+OnEntityDestroy
+Called right before a CH47Helicopter or BradleyAPC is destroyed
+Returning a non-null value overrides default behavior
+object OnEntityDestroy(BaseCombatEntity entity)
+{
+    Puts("OnEntityDestroy works!");
+    return null;
+}
+OnElevatorButtonPress
+Called when a player presses a button on an elevator lift
+Returning a non-null value overrides default behavior
+object OnElevatorButtonPress(ElevatorLift lift, BasePlayer player, Elevator.Direction direction, bool toTopOrBottom)
+{
+    Puts("OnElevatorButtonPress works!");
+    return null;
+}
+OnElevatorCall
+Called when an elevator lift is called to a specific floor by electricity
+Returning a non-null value overrides default behavior
+object OnElevatorCall(Elevator elevator, Elevator topElevator)
+{
+    Puts("OnElevatorCall works!");
+    return null;
+}
+OnElevatorMove
+Called right before an elevator starts moving to the target floor
+Returning a non-null value overrides default behavior
+object OnElevatorMove(Elevator topElevator, int targetFloor)
+{
+    Puts("OnElevatorMove works!");
+    return null;
+}
+CanSwapToSeat
+Called when a player tries to switch seats, to determine whether each seat is eligible to be swapped to
+Returning true or false overrides default behavior
+bool CanSwapToSeat(BasePlayer player, BaseMountable mountable)
+{
+    Puts("CanSwapToSeat works!");
+    return true;
+}
+OnRidableAnimalClaim
+Called when a player tries to claim a horse
+Returning a non-null value overrides default behavior
+object OnRidableAnimalClaim(BaseRidableAnimal animal, BasePlayer player)
+{
+    Puts("OnRidableAnimalClaim works!");
+    return null;
+}
+OnRidableAnimalClaimed
+Called after a player has claimed a horse
+No return behavior
+void OnRidableAnimalClaimed(BaseRidableAnimal animal, BasePlayer player)
+{
+    Puts("OnRidableAnimalClaimed works!");
+}
+OnEntitySaved
+Called after a BaseNetworkable has been saved to a ProtoBuf object and is about to be serialized to a network stream or network cache
+No return behavior
+void OnEntitySaved(BaseNetworkable entity, BaseNetworkable.SaveInfo saveInfo)
+{
+    Puts("OnEntitySaved works!");
+}
+OnEntitySnapshot
+Called when an entity snapshot is about to be sent to a client connection
+Returning a non-null value overrides default behavior
+object OnEntitySnapshot(BaseNetworkable entity, Connection connection)
+{
+    Puts("OnEntitySnapshot works!");
+    return null;
+}
+OnIORefCleared
+Called after a wire has been disconnected from an electrical entity, such as when its connected entity was destroyed or when a player removed the wire
+No return behavior
+void OnIORefCleared(IOEntity.IORef ioRef, IOEntity ioEntity)
+{
+    Puts("OnIORefCleared works!");
+}
+OnEntityFlagsNetworkUpdate
+Called after an entity's flags have been updated on the server, before they are sent over the network
+Returning a non-null value overrides default behavior
+object OnEntityFlagsNetworkUpdate(BaseEntity entity)
+{
+    Puts("OnEntityFlagsNetworkUpdate works!");
+    return null;
+}
+OnSupplyDropDropped
+Called right after a cargo plane has dropped a supply drop
+No return behavior
+void OnSupplyDropDropped(SupplyDrop supplyDrop, CargoPlane cargoPlane)
+{
+    Puts("OnSupplyDropDropped works!");
+}
+OnCargoPlaneSignaled
+Called right after a supply signal has called a cargo plane
+No return behavior
+void OnCargoPlaneSignaled(CargoPlane cargoPlane, SupplySignal supplySignal)
+{
+    Puts("OnCargoPlaneSignaled works!");
+}
+OnWaterPurify
+Called when salt water is about to be converted to fresh water in a water purifier
+Returning a non-null value cancels default behavior
+object OnWaterPurify(WaterPurifier waterPurifier, float timeCooked)
+{
+    Puts("OnWaterPurify works!");
+    return null;
+}
+OnWaterPurified
+Called after salt water has been converted to fresh water in a water purifier
+No return behavior
+void OnWaterPurified(WaterPurifier waterPurifier, float timeCooked)
+{
+    Puts("OnWaterPurified works!");
+}
+OnSleepingBagValidCheck
+Called when determining if a sleeping bag is a valid respawn location for a player
+Useful in conjunction with OnRespawnInformationGiven since a custom sleeping bag will need to pass this check
+Returning true or false overrides default behavior
+bool? OnSleepingBagValidCheck(SleepingBag bag, ulong targetPlayerID, bool ignoreTimers)
+{
+    Puts("OnSleepingBagValidCheck works!");
+    return null;
+}
+OnCCTVDirectionChange
+Called when a player attempts to change the direction of a CCTV camera to face them
+Returning a non-null value cancels default behavior
+object OnCCTVDirectionChange(CCTV_RC camera, BasePlayer player)
+{
+    Puts("OnCCTVDirectionChange works!");
+    return null;
+}
+OnWaterCollect
+Called when a water catcher is about to collect water
+Returning a non-null value cancels default behavior
+object OnWaterCollect(WaterCatcher waterCatcher)
+{
+    Puts("OnWaterCollect works!");
+    return null;
+}
+OnLiquidVesselFill
+Called when a player is attempting to fill a liquid vessel
+Returning a non-null value cancels default behavior
+object OnLiquidVesselFill(BaseLiquidVessel liquidVessel, BasePlayer player, LiquidContainer facingLiquidContainer)
+{
+    Puts("OnLiquidVesselFill works!");
+    return null;
